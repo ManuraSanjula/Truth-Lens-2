@@ -1,0 +1,142 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=PyCharm
+
+###
+
+
+# curl -X POST "http://localhost:8000/api/v1/content/submit"
+#-H "Content-Type: multipart/form-data"
+#-F "content_type=text"
+#-F "raw_text=This is some suspicious news article text..."
+#-F "user_id=user123"
+POST http://localhost:8000/api/v1/content/submit
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="content_type"
+
+text
+--WebAppBoundary
+Content-Disposition: form-data; name="raw_text"
+
+This is some suspicious news article text...
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+user123
+--WebAppBoundary--
+
+###
+
+# curl -X POST "http://localhost:8000/api/v1/content/submit"
+#-H "Content-Type: multipart/form-data"
+#-F "content_type=url"
+#-F "source_url=https://example.com/suspicious-article"
+#-F "user_id=user123"
+POST http://localhost:8000/api/v1/content/submit
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="content_type"
+
+url
+--WebAppBoundary
+Content-Disposition: form-data; name="source_url"
+
+https://example.com/suspicious-article
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+user123
+--WebAppBoundary--
+
+###
+
+# curl -X POST "http://localhost:8000/api/v1/content/submit"
+#-H "Content-Type: multipart/form-data"
+#-F "content_type=image"
+#-F "file=@/path/to/suspicious_image.jpg"
+#-F "user_id=user123"
+POST http://localhost:8000/api/v1/content/submit
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="content_type"
+
+image
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="suspicious_image.jpg"
+
+< /path/to/suspicious_image.jpg
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+user123
+--WebAppBoundary--
+
+###
+
+# curl -X POST "http://localhost:8000/api/v1/content/submit"
+#-H "Content-Type: multipart/form-data"
+#-F "content_type=video"
+#-F "file=@/path/to/suspicious_video.mp4"
+#-F "user_id=user123"
+POST http://localhost:8000/api/v1/content/submit
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="content_type"
+
+video
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="suspicious_video.mp4"
+
+< /path/to/suspicious_video.mp4
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+user123
+--WebAppBoundary--
+
+###
+
+# curl -X POST "http://localhost:8000/api/v1/content/submit"
+#-H "Content-Type: multipart/form-data"
+#-F "content_type=url"
+#-F "source_url=https://www.usnews.com/news/best-states/new-york/articles/2025-04-19/anti-trump-protesters-turn-out-to-rallies-in-new-york-washington-and-other-cities-across-country"
+#-F "user_id=6804a44d00830494ddddbafd"
+POST http://localhost:8000/api/v1/content/submit
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="content_type"
+
+url
+--WebAppBoundary
+Content-Disposition: form-data; name="source_url"
+
+https://www.usnews.com/news/best-states/new-york/articles/2025-04-19/anti-trump-protesters-turn-out-to-rallies-in-new-york-washington-and-other-cities-across-country
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+
+6804a44d00830494ddddbafd
+--WebAppBoundary--
+
+###
+
+# curl -X POST "http://localhost:8000/api/v1/users/register"
+#-H "Content-Type: application/json"
+#-d '{"username":"testuser","password":"testpass","email":"user@example.com"}'
+POST http://localhost:8000/api/v1/users/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpass",
+  "email": "user@example.com"
+}
+
+###
+
+GET http://localhost:8000/api/v1/content/status/68050e4982a58b1c35ee06e7
