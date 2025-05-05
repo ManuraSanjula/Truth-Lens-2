@@ -5,7 +5,6 @@ import socket  # Added missing import
 from datetime import datetime
 from bs4 import BeautifulSoup
 from typing import Dict, Optional
-import asyncio
 
 
 class URLDetector:

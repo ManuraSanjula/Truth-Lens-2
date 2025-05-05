@@ -3,8 +3,8 @@ from enum import Enum
 from typing import Optional, Dict
 from pydantic import BaseModel, Field, HttpUrl, validator
 from bson import ObjectId
-from app.utils.database import db
-from app.utils.config import settings
+from TruthLens.app.utils.database import db
+from TruthLens.app.utils.config import settings
 
 
 class ContentType(str, Enum):

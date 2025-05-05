@@ -4,7 +4,6 @@ from PIL import Image, ExifTags
 import requests
 from io import BytesIO
 from typing import Dict
-import asyncio
 
 
 class ImageDetector:

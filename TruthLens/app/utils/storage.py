@@ -1,7 +1,7 @@
 import os
 import uuid
 from fastapi import UploadFile
-from app.utils.config import settings
+from TruthLens.app.utils.config import settings
 import logging
 
 logger = logging.getLogger(__name__)

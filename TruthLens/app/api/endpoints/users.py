@@ -6,10 +6,10 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
 
-from app.models.users import create_user
-from app.utils.config import settings
-from app.utils.database import db
-from app.models.users import User, UserInDB, UserCreate
+from TruthLens.app.models.users import create_user
+from TruthLens.app.utils.config import settings
+from TruthLens.app.utils.database import db
+from TruthLens.app.models.users import User, UserInDB, UserCreate
 import logging
 
 router = APIRouter()

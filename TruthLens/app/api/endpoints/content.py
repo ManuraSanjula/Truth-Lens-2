@@ -1,9 +1,9 @@
 import asyncio
 from typing import Optional
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
-from app.services.content_processor import process_content
-from app.models import Content, ContentCreate, ContentType
-from app.utils.storage import save_uploaded_file
+from TruthLens.app.services.content_processor import process_content
+from TruthLens.app.models import Content, ContentCreate, ContentType
+from TruthLens.app.utils.storage import save_uploaded_file
 import logging
 
 router = APIRouter()

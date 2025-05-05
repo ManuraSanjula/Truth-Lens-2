@@ -3,8 +3,8 @@ from datetime import datetime
 from typing import Optional, Dict, Any
 from pydantic import BaseModel, Field
 from bson import ObjectId
-from app.utils.database import db
-from app.utils.config import settings
+from TruthLens.app.utils.database import db
+from TruthLens.app.utils.config import settings
 
 
 class DetectionType(str, Enum):

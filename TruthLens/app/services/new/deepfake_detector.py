@@ -2,14 +2,13 @@ import cv2
 import numpy as np
 from PIL import Image
 import imagehash
-from app.utils.config import settings
+from TruthLens.app.utils.config import settings
 import os
 import logging
 import tensorflow as tf
-from typing import Dict, List, Union, Tuple, Any
+from typing import Dict, List, Any
 import time
 
-# Try multiple import paths for compatibility with different TensorFlow versions
 try:
     # Try the current import path first
     from tf_keras.models import load_model

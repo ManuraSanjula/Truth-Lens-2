@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.endpoints import content, results, users
-from app.utils.database import init_db
-from app.utils.config import settings
+from TruthLens.app.api.endpoints import content, results, users
+from TruthLens.app.utils.database import init_db
+from TruthLens.app.utils.config import settings
 import logging
-from app.api.endpoints import video
-from app.api.endpoints import detection
+from TruthLens.app.api.endpoints import video
+from TruthLens.app.api.endpoints import detection
 from contextlib import asynccontextmanager
 
 logger = logging.getLogger(__name__)

@@ -1,12 +1,10 @@
 import cv2
-import numpy as np
 import requests
 import tempfile
 import os
 from typing import Dict
 from PIL import Image
-import asyncio
-from app.services.new.image_detector import ImageDetector  # Import ImageDetector
+from TruthLens.app.services.new.image_detector import ImageDetector  # Import ImageDetector
 
 
 class VideoDetector:

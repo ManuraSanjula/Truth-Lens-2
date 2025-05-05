@@ -1,7 +1,7 @@
 import logging
 import sys
 from logging.handlers import RotatingFileHandler
-from app.utils.config import settings
+from TruthLens.app.utils.config import settings
 
 
 def setup_logger():

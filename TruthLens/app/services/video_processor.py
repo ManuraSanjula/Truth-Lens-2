@@ -2,10 +2,10 @@ import cv2
 import os
 import numpy as np
 from typing import List, Dict
-from app.utils.config import settings
-from app.utils.logger import logger
-from app.services.deepfake_detector import DeepfakeDetector
-from app.models.result import Result
+from TruthLens.app.utils.config import settings
+from TruthLens.app.utils.logger import logger
+from TruthLens.app.services.deepfake_detector import DeepfakeDetector
+from TruthLens.app.models.result import Result
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 

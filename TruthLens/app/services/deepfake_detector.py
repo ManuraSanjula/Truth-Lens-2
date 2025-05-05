@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import imagehash
-from app.utils.config import settings
+from TruthLens.app.utils.config import settings
 import os
 import logging
 import tensorflow as tf

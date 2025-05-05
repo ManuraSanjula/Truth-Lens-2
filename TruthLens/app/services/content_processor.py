@@ -1,8 +1,8 @@
-from app.models import Result, Content, ContentStatus, ContentType
-from app.services.new.fake_news_detector import fake_news_detector
-from app.services.url_processor import url_processor
-from app.services.new.v1.deepfake_detector import deepfake_detector
-from app.services.video_processor import video_processor
+from TruthLens.app.models import Result, Content, ContentStatus, ContentType
+from TruthLens.app.services.new.fake_news_detector import fake_news_detector
+from TruthLens.app.services.url_processor import url_processor
+from TruthLens.app.services.new.v1.deepfake_detector import deepfake_detector
+from TruthLens.app.services.video_processor import video_processor
 import logging
 
 logger = logging.getLogger(__name__)
@@ -49,15 +49,33 @@ async def _process_text_content(content: Content) -> list[Result]:
     if isinstance(explanation, dict):
         explanation = str(explanation)  # or format it more nicely if needed
 
+    # Convert is_fake to boolean and ensure confidence is a float
+    is_fake_value = analysis["is_fake"]
+    if isinstance(is_fake_value, float):
+        is_fake_value = is_fake_value > 0.5  # Convert probability to boolean
+    else:
+        is_fake_value = bool(is_fake_value)  # Ensure it's a boolean
+
+    # Ensure confidence is a float
+    confidence_value = analysis.get("classification", 0.0)
+    if isinstance(confidence_value, str):
+        # Try to convert string to float, or use a default value
+        try:
+            confidence_value = float(confidence_value)
+        except ValueError:
+            # If the string is something like 'verified', assign a default confidence
+            confidence_value = 1.0 if confidence_value.lower() == 'verified' else 0.0
+
     return [Result(
         content_id=str(content.id),
         detection_type="fake_news",
-        is_fake=analysis["is_fake"],
-        confidence=analysis["confidence"],
+        is_fake=is_fake_value,
+        confidence=confidence_value,
         explanation=explanation,
-        model_used=analysis["model_used"],
+        model_used=analysis["model_information"]["models_used"],
         model_version="1.0"
     )]
+
 
 async def _process_url_content(content: Content, content_id: str) -> list[Result]:
     """Direct URL processing"""

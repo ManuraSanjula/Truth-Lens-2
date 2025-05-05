@@ -1,10 +1,8 @@
 from urllib.parse import urlparse
-import mimetypes
 from typing import Dict
-import asyncio
-from app.services.new.url_detector import URLDetector  # Import URLDetector
-from app.services.new.image_detector import ImageDetector  # Import ImageDetector
-from app.services.new.video_detector import VideoDetector  # Import VideoDetector
+from TruthLens.app.services.new.url_detector import URLDetector  # Import URLDetector
+from TruthLens.app.services.new.image_detector import ImageDetector  # Import ImageDetector
+from TruthLens.app.services.new.video_detector import VideoDetector  # Import VideoDetector
 
 
 class ContentDetector:

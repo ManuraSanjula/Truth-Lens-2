@@ -1,9 +1,9 @@
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
 
-from app.models import Result
-from app.services.video_processor import video_processor
-from app.models.content import Content, ContentCreate
-from app.utils.storage import save_uploaded_file
+from TruthLens.app.models import Result
+from TruthLens.app.services.video_processor import video_processor
+from TruthLens.app.models.content import Content, ContentCreate
+from TruthLens.app.utils.storage import save_uploaded_file
 import logging
 from typing import Optional
 

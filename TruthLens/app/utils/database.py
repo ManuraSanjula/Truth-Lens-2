@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from redis import asyncio as aioredis
-from app.utils.config import settings
+from TruthLens.app.utils.config import settings
 import logging
 
 logger = logging.getLogger(__name__)

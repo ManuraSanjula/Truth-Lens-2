@@ -4,8 +4,8 @@ from enum import Enum
 from pydantic import BaseModel, Field, HttpUrl
 from bson import ObjectId
 
-from app.utils.config import settings
-from app.utils.database import db
+from TruthLens.app.utils.config import settings
+from TruthLens.app.utils.database import db
 
 class ContentType(str, Enum):
     TEXT = "text"

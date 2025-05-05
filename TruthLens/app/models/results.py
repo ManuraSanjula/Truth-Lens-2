@@ -1,10 +1,9 @@
-from typing import Dict, List, Optional, Any, Union
 from datetime import datetime
 from enum import Enum
 from pydantic import BaseModel, Field
 from bson import ObjectId
-from app.utils.database import db
-from app.utils.config import settings
+from TruthLens.app.utils.database import db
+from TruthLens.app.utils.config import settings
 import logging
 from typing import Dict, List, Optional
 
@@ -40,14 +39,24 @@ class Result(ResultBase):
         allow_population_by_field_name = True
         json_encoders = {ObjectId: str}
 
+    @classmethod
+    def from_mongo(cls, data: dict) -> "Result":
+        """Convert MongoDB document to Pydantic model"""
+        if data.get("_id"):
+            # Convert ObjectId to string
+            data["_id"] = str(data["_id"])
+        return cls(**data)
+
 
 async def create_result(result: ResultCreate) -> Result:
     result_dict = result.dict()
     inserted = await db.client[settings.MONGODB_NAME].results.insert_one(result_dict)
     created = await db.client[settings.MONGODB_NAME].results.find_one({"_id": inserted.inserted_id})
-    return Result(**created)
+    # Use the from_mongo class method to handle ObjectId conversion
+    return Result.from_mongo(created)
 
 
 async def get_results_by_content(content_id: str) -> List[Result]:
     results = await db.client[settings.MONGODB_NAME].results.find({"content_id": content_id}).to_list(None)
-    return [Result(**result) for result in results]
+    # Use the from_mongo class method for each result
+    return [Result.from_mongo(result) for result in results]

@@ -19,3 +19,6 @@ uvicorn
 pymongo
 email-validator
 python-multipart
+tf-keras
+scikit-learn
+bcrypt

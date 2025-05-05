@@ -1,8 +1,8 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 from bson import ObjectId
-from app.utils.database import db
-from app.utils.config import settings
+from TruthLens.app.utils.database import db
+from TruthLens.app.utils.config import settings
 from passlib.context import CryptContext
 import logging
 

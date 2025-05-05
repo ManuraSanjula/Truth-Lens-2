@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
-from app.services.new.content_detector import ContentDetector
-from app.utils.logger import logger
+from TruthLens.app.services.new.content_detector import ContentDetector
+from TruthLens.app.utils.logger import logger
 from typing import Optional
 import asyncio
 
